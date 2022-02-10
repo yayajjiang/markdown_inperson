@@ -77,16 +77,16 @@ public class MarkdownParse {
 
             if (!checkExtension(markdown.substring(openParen +1, closeParen)) && openParen-nextCloseBracket==1)
             {
-                if(markdown.substring(openParen + 1, closeParen).indexOf(".")!=-1 && markdown.indexOf(")", closeParen) == -1)
-                {
+                if(markdown.substring(openParen + 1, closeParen).indexOf(".")!=-1 && markdown.indexOf(")", closeParen) == -1){
                     toReturn.add(markdown.substring(openParen + 1, closeParen));
 
-                }else{
-                int secondparen = markdown.indexOf(")", closeParen);
-                System.out.println(markdown.charAt(secondparen));
-                toReturn.add(markdown.substring(openParen + 1, secondparen+1));
-
                 }
+                // else{
+                // int secondparen = markdown.indexOf(")", closeParen);
+                // System.out.println(markdown.charAt(secondparen));
+                // toReturn.add(markdown.substring(openParen + 1, secondparen+1));
+
+                // }
             }
             
 
