@@ -70,6 +70,8 @@ public class MarkdownParse {
             openParen < prevOpenParen || closeParen < prevCloseParen){
                 break;
             }
+
+            
             //System.out.println("Hello");
             System.out.println(nextCloseBracket);
             System.out.println(openParen);
