@@ -1,1 +1,1 @@
-))[![]]()![link](()page.com)
+![link](page.com())

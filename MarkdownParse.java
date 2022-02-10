@@ -56,24 +56,47 @@ public class MarkdownParse {
             int prevCloseBracket = nextCloseBracket;
             int prevOpenParen = openParen;
             int prevCloseParen = closeParen;
+            //System.out.println("Hello");
 
             if (nextCloseBracket > openParen) break;
             nextOpenBracket = markdown.indexOf("[", currentIndex);
             nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             openParen = markdown.indexOf("(", nextCloseBracket);
             closeParen = markdown.indexOf(")", openParen);
+            //System.out.println("Hello");
 
             // Fix for tests 2 and 8
             if(nextOpenBracket == -1 || nextCloseBracket == -1 || 
             openParen < prevOpenParen || closeParen < prevCloseParen){
                 break;
             }
+            //System.out.println("Hello");
+            System.out.println(nextCloseBracket);
+            System.out.println(openParen);
+            System.out.println(nextCloseBracket);
 
             if (!checkExtension(markdown.substring(openParen +1, closeParen)) && openParen-nextCloseBracket==1)
             {
-                if(markdown.substring(openParen + 1, closeParen).indexOf(".")!=-1)
+                if(markdown.substring(openParen + 1, closeParen).indexOf(".")!=-1 && markdown.indexOf(")", closeParen) == -1)
+                {
                     toReturn.add(markdown.substring(openParen + 1, closeParen));
+
+                }else{
+                int secondparen = markdown.indexOf(")", closeParen);
+                System.out.println(markdown.charAt(secondparen));
+                toReturn.add(markdown.substring(openParen + 1, secondparen+1));
+
+                }
             }
+            
+
+            // else if (openParen - nextCloseBracket == 1 && ){
+            //     System.out.println("Hello");
+
+            //     int secondparen = markdown.indexOf(")", closeParen);
+            //     System.out.println(markdown.charAt(secondparen));
+            //     toReturn.add(markdown.substring(openParen + 1, secondparen+1));
+            // }
             currentIndex = closeParen + 1;
         }
         return toReturn;

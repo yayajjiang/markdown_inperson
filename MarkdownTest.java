@@ -93,8 +93,8 @@ public class MarkdownTest {
     @Test
     public void testFile9() throws IOException {
         String contents= Files.readString(Path.of("./test-file9.md"));
-        List<String> expect = List.of("()page.com");
-        assertEquals(MarkdownParse.getLinks(contents), expect);
+        List<String> expect = List.of("page.com()");
+        assertEquals(expect, MarkdownParse.getLinks(contents) );
     }
 
 
