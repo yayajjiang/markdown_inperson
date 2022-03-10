@@ -71,11 +71,11 @@ public class MarkdownParse {
                 break;
             }
 
-            
+
             //System.out.println("Hello");
-            System.out.println(nextCloseBracket);
-            System.out.println(openParen);
-            System.out.println(nextCloseBracket);
+            //System.out.println(nextCloseBracket);
+            //System.out.println(openParen);
+            //System.out.println(nextCloseBracket);
 
             if (!checkExtension(markdown.substring(openParen +1, closeParen)) && openParen-nextCloseBracket==1)
             {
